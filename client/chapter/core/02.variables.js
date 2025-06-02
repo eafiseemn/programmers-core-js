@@ -33,6 +33,8 @@ let currentOnlineUserName;
 
 /* --------- 다음 내용을 분석한 후, 프로그래밍 할 수 있도록 변수와 상수를 작성해봅니다. ----------- */
 
+/* variables ----------------------------------------------------------- */
+
 // - 갯수 별 상품 가격 계산하기
 let merchandisePrice;
 let totalPurchaseCount;
@@ -41,18 +43,12 @@ let totalPurchaseCount;
 let totalPurchasePrice;
 // totalPurchasePrice= merchandisePrice * totalPurchaseCount;
 
-// - 1년 기준 일(day)자 수
-const DAYS_FOR_A_YEAR = 365;
-
 // - 구매 결제 여부
 let isPurchased = true; // 'Y/N' 보다는 Boolean 데이터를 많이 사용함
 isPurchased = false;
 
 // - 구매 결제 내역
 let purchasedPaymentHistory;
-
-// - 브랜드 접두사
-const brandPrefix = 'Azure';
 
 // - 오늘의 운세
 let todaysFortune;
@@ -61,8 +57,10 @@ let todaysFortune;
 let merchandiseInfo;
 
 
-/* variables ----------------------------------------------------------- */
-
-
 /* constant variables -------------------------------------------------- */
 
+// - 1년 기준 일(day)자 수
+const DAYS_FOR_A_YEAR = 365;
+
+// - 브랜드 접두사
+const brandPrefix = 'Azure';
