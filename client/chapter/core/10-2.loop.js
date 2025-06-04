@@ -80,3 +80,4 @@ console.log(second);
 console.log(third);
 
 // 위 함수는 nextElementSibling과 동일
+// 이전 element 를 찾는 건 previousElementSibling
