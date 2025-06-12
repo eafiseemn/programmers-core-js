@@ -47,7 +47,8 @@
  3. [function (2)][11-2] : 함수 표현식, 집합 데이터 활용
 
 - 배열 (Array)
- 1. [function (2)][11-2] : 배열 매서드 forEach / reduce / map , call / proto
+ 1. [function (2)][11-2] : 배열 매서드 forEach / reduce / map 
+                        & 유사배열을 배열로 변환하기 (call / proto)
 
 - Document Object Model (DOM)
  1. [loop (2)][10-2] : querySelector 와 nextSibling / nextElementSibling
@@ -72,3 +73,9 @@
 [10-5]: https://github.com/eafiseemn/programmers-core-js/blob/main/client/chapter/core/10-5.loop.js
 [11-1]: https://github.com/eafiseemn/programmers-core-js/blob/main/client/chapter/core/11-1.function.js
 [11-2]: https://github.com/eafiseemn/programmers-core-js/blob/main/client/chapter/core/11-2.function.js
+[11-3]: https://github.com/eafiseemn/programmers-core-js/blob/main/client/chapter/core/11-3.function.js
+[11-4]: https://github.com/eafiseemn/programmers-core-js/blob/main/client/chapter/core/11-4.function.js
+[12-1]: https://github.com/eafiseemn/programmers-core-js/blob/main/client/chapter/core/12-1.object.js
+[12-2]: https://github.com/eafiseemn/programmers-core-js/blob/main/client/chapter/core/12-2.object.js
+[12-3]: https://github.com/eafiseemn/programmers-core-js/blob/main/client/chapter/core/12-3.object.js
+[12-4]: https://github.com/eafiseemn/programmers-core-js/blob/main/client/chapter/core/12-4.object.js

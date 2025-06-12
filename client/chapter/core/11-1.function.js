@@ -80,30 +80,12 @@ ask('동의합니까?', function(){}, function(){}); // 이름을 지정하지 �
     // 4. 함수의 이름은 그 기능을 명확히 표현해야 한다. (동사 활용; 가독성 높게)
     // 5. 인자와 인수를 4개 이상 사용하는 것은 지양해야 한다.
 
-/* 다음 함수를 작성해봅니다. -------------------------------------------------- */
-
-// rem(pxValue: number|string, base: number):string;
-let rem;
-
-
-
-
-// css(node: string, prop: string, value: number|strung) : string;
-let css;
 
 
 
 
 
-// node의 값을 'h1'으로 받았을 경우 
 
-// node가 없거나 document.ELEMENT_NODE가 아닐 경우
-
-// prop의 값이 string이 아닐 경우
-
-// prop의 값이 style 속성이 아닐 경우 
-
-// value의 값이 number가 아닌 경우 
 
 
 

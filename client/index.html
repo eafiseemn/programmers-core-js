@@ -6,6 +6,9 @@
 		<title>JavaScript Study</title>
 		<link rel="stylesheet" href="style.css" />
 		<link rel="shortcut icon" href="./assets/favicon.svg" type="image/x-icon" />
+
+		<script src="./chapter/utils/type.js"></script>
+
 		<!-- <script src="./chapter/core/01.codeStructure.js"></script> -->
 		<!-- <script src="./chapter/core/02.variables.js"></script> -->
 		<!-- <script src="./chapter/core/03.strictMode.js"></script> -->
@@ -22,10 +25,27 @@
 		<!-- <script src="./chapter/core/10-1.loop.js"></script> -->
 		<!-- <script src="./chapter/core/10-2.loop.js" defer></script> -->
 		<!-- <script src="./chapter/core/10-3.loop.js" defer></script> -->
-		<!-- <script src="./chapter/core/10-4.loop.js" defer></script> -->
-		<!-- <script src="./chapter/core/10-5.loop.js" defer></script> -->
-		<!-- <script src="./chapter/core/11-1.function.js" defer></script> -->
-		<script src="./chapter/core/11-2.function.js" defer></script>
+		<!-- <script src="./chapter/core/10-4.loop.js"></script> -->
+		<!-- <script src="./chapter/core/10-5.loop.js"></script> -->
+		<!-- <script src="./chapter/core/11-1.function.js"></script> -->
+		<!-- <script src="./chapter/core/11-2.function.js"></script> -->
+		<!-- <script src="./chapter/core/11-3.function.js"></script> -->
+		<!-- <script src="./chapter/core/11-4.function.js"></script> -->
+		<!-- <script src="./chapter/core/12-1.object.js" defer></script> -->
+		<!-- <script src="./chapter/core/12-2.object.js"></script> -->
+		<!-- <script src="./chapter/core/12-4.object.js"></script> -->
+		<!-- <script src="./chapter/core/13-1.prototype.js"></script> -->
+		<!-- <script src="./chapter/core/13-2.prototype.js" defer></script> -->
+		<!-- <script src="./chapter/core/13-3.prototype.js" defer></script> -->
+		<!-- <script src="./chapter/core/14-1.closure.js" defer></script> -->
+		<!-- <script src="./chapter/core/14-2.closure.js" defer></script> -->
+		<!-- <script src="./chapter/core/15.optional.js" defer></script> -->
+		<!-- <script src="./chapter/core/17-1.number.js" defer></script> -->
+		<!-- <script src="./chapter/core/17-2.number.js" defer></script> -->
+		<!-- <script src="./chapter/core/18.string.js"></script> -->
+		<!-- <script src="./chapter/core/19-1.array.js" defer></script> -->
+		<!-- <script src="./chapter/core/19-2.array.js" defer></script> -->
+		<script src="./chapter/core/20.tryCatch.js" defer></script>
 	</head>
 	<body>
 		<h1>
@@ -37,11 +57,35 @@
 			<!-- 주석입니다. -->
 			<!-- 주석입니다. -->
 
-			<span class="second">JavaScript</span>
+			<span class="second" id="java">JavaScript</span>
 			<!-- 주석입니다. -->
 			<!-- 주석입니다. -->
 			<!-- 주석입니다. -->
-			<span class="third">Study</span>
+			<span class="third second">Study</span>
 		</h1>
+
+		<form class="todo">
+			<label for="txt">TODO:</label>
+			<input type="text" id="txt" class="todoInput" />
+			<button class="todoButton">ADD</button>
+		</form>
+		<ul class="todolist"></ul>
+
+		<form class="todo2">
+			<label for="txt">TODO:</label>
+			<input type="text" class="todoInput2" />
+			<button class="todoButton2">ADD</button>
+		</form>
+		<ul class="todolist2"></ul>
+
+		<div>
+			<span class="toggleBtn">비활성화</span>
+			<button type="button" class="btn">Click Me!</button>
+			<button type="button" class="btn2">Click Me!</button>
+		</div>
+
+		<div class="space blind">
+			<div class="circle blind"></div>
+		</div>
 	</body>
 </html>
