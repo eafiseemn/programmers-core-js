@@ -8,7 +8,23 @@ const types = {
 	isNull: true,
 	isString: true,
 	isNumber: true,
+	isUndefined: true,
 }
+
+const inserts = {
+	insert: true,
+	insertBefore: true,
+	insertFirstChild: true,
+	insertLastChild: true,
+	insertAfter: true,
+}
+
+const cssClass = {
+	addClass: true,
+	removeClass: true,
+	toggleClass: true,
+}
+
 export default defineConfig([
 	{
 		files: ["**/*.{js,mjs,cjs}"],
@@ -22,6 +38,11 @@ export default defineConfig([
 				...globals.browser, 
 				...globals.node,
 				...types,
+				...inserts,
+				...cssClass,
+				getNode: true,
+				getNodes: true,
+				gsap: true,
 			} },
 		rules: { "no-unused-vars": "off" },
 	},

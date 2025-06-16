@@ -8,6 +8,13 @@
 		<link rel="shortcut icon" href="./assets/favicon.svg" type="image/x-icon" />
 
 		<script src="./chapter/utils/type.js"></script>
+		<script src="./chapter/utils/getNode.js" defer></script>
+		<script src="./chapter/utils/insert.js" defer></script>
+		<script src="./chapter/utils/css.js" defer></script>
+
+		<script
+			src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"
+			defer></script>
 
 		<!-- <script src="./chapter/core/01.codeStructure.js"></script> -->
 		<!-- <script src="./chapter/core/02.variables.js"></script> -->
@@ -45,9 +52,25 @@
 		<!-- <script src="./chapter/core/18.string.js"></script> -->
 		<!-- <script src="./chapter/core/19-1.array.js" defer></script> -->
 		<!-- <script src="./chapter/core/19-2.array.js" defer></script> -->
-		<script src="./chapter/core/20.tryCatch.js" defer></script>
+		<!-- <script src="./chapter/core/20.tryCatch.js" defer></script> -->
+		<!-- <script src="./chapter/dom/01-1.BOM.js" defer></script> -->
+		<!-- <script src="./chapter/dom/01-2.BOM.js" defer></script> -->
+		<!-- <script src="./chapter/dom/02.DOM.js" defer></script> -->
+		<!-- <script src="./chapter/dom/03.nodeClass.js" defer></script> -->
+		<!-- <script src="./chapter/dom/04.attribute.js" defer></script> -->
+		<!-- <script src="./chapter/dom/05.manipulation.js" defer></script> -->
+		<!-- <script src="./chapter/dom/06.style.js" defer></script> -->
+		<!-- <script src="./chapter/dom/07.event.js" defer></script> -->
+		<!-- <script src="./chapter/dom/08.bubble.js" defer></script> -->
+		<script src="./chapter/dom/09.eventDelegation.js" defer></script>
 	</head>
 	<body>
+		<nav class="navigation">
+			<li><a href="/">HOME</a></li>
+			<li class="about"><a href="/about">ABOUT</a></li>
+			<li data-name="contact"><a href="/contact">CONTACT</a></li>
+		</nav>
+		<div id="app"></div>
 		<h1>
 			<span class="first">core</span>
 
@@ -84,8 +107,16 @@
 			<button type="button" class="btn2">Click Me!</button>
 		</div>
 
+		<video autoplay id="videoElement"></video>
 		<div class="space blind">
 			<div class="circle blind"></div>
 		</div>
+
+		<hr />
+		<section>
+			<article>
+				<p></p>
+			</article>
+		</section>
 	</body>
 </html>
