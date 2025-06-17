@@ -2,29 +2,32 @@
 /*                             insertAdjacentHTML                             */
 /* -------------------------------------------------------------------------- */
 
+import { getNode } from "../dom/getNode.js"
+import { isString } from "../utils/type.js";
+
 // - "beforebegin" – before
 // - "afterbegin" – firstchild
 // - "beforeend" – lastchild
 // - "afterend" – after
 
-function insertBefore(node, content) {
+export function insertBefore(node, content) {
     if(isString(node)) node = getNode(node);
     node.insertAdjacentHTML('beforebegin', content);
 }
-function insertFirstChild(node, content) {
+export function insertFirstChild(node, content) {
     if(isString(node)) node = getNode(node);
     node.insertAdjacentHTML('beforebegin', content);
 }
-function insertLastChild(node, content) {
+export function insertLastChild(node, content) {
     if(isString(node)) node = getNode(node);
     node.insertAdjacentHTML('beforeend', content);
 }
-function insertAfter(node, content) {
+export function insertAfter(node, content) {
     if(isString(node)) node = getNode(node);
     node.insertAdjacentHTML('afterend', content);
 }
 
-function insert(node, content, place) {
+export function insert(node, content, place) {
     switch (place) {
         case 'before':
             insertBefore(node, content);

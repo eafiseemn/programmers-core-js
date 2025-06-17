@@ -7,7 +7,11 @@
  * @return {void}
  */
 
-function addClass(nodeName, className) {
+import { isString, isArray, isObject } from "../utils/type.js";
+import { getNode } from "./getNode.js";
+
+
+export function addClass(nodeName, className) {
     if(isString(nodeName)) nodeName = getNode(nodeName);
     if(!nodeName)
         throw new ReferenceError('입력하신 node 요소를 찾을 수 없습니다.');
@@ -56,7 +60,7 @@ function addClass(nodeName, className) {
  * @return {void}
  */
 
-function removeClass(nodeName, className) {
+export function removeClass(nodeName, className) {
     if(isString(nodeName)) nodeName = getNode(nodeName);
     if(!nodeName)
         throw new ReferenceError('입력하신 node 요소를 찾을 수 없습니다.');
@@ -85,7 +89,7 @@ function removeClass(nodeName, className) {
  * @returns {boolean} - 추가 true, 제거 false
  */
 
-function toggleClass(nodeName, className) {
+export function toggleClass(nodeName, className) {
     if(isString(nodeName)) nodeName = getNode(nodeName)
     if(!nodeName)
         throw new ReferenceError('입력하신 node 요소를 찾을 수 없습니다.');

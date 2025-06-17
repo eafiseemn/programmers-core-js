@@ -2,6 +2,8 @@
 /*                     HTML Attributes vs. DOM Properties                     */
 /* -------------------------------------------------------------------------- */
 
+import { isString, isUndefined } from "../utils/type.js";
+import { getNode } from "./getNode.js";
 /* HTML 속성 ------------------------------------------------------------- */
 
 // 브라우저는 HTML 태그를 해석해 DOM 객체를 만들 때 HTML 표준 속성을 인식하고, 

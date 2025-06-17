@@ -2,28 +2,28 @@ import js from "@eslint/js";
 import globals from "globals";
 import { defineConfig } from "eslint/config";
 
-const types = {
-	isObject: true,
-	isArray: true,
-	isNull: true,
-	isString: true,
-	isNumber: true,
-	isUndefined: true,
-}
+// const types = {
+// 	isObject: true,
+// 	isArray: true,
+// 	isNull: true,
+// 	isString: true,
+// 	isNumber: true,
+// 	isUndefined: true,
+// }
 
-const inserts = {
-	insert: true,
-	insertBefore: true,
-	insertFirstChild: true,
-	insertLastChild: true,
-	insertAfter: true,
-}
+// const inserts = {
+// 	insert: true,
+// 	insertBefore: true,
+// 	insertFirstChild: true,
+// 	insertLastChild: true,
+// 	insertAfter: true,
+// }
 
-const cssClass = {
-	addClass: true,
-	removeClass: true,
-	toggleClass: true,
-}
+// const cssClass = {
+// 	addClass: true,
+// 	removeClass: true,
+// 	toggleClass: true,
+// }
 
 export default defineConfig([
 	{
@@ -37,12 +37,13 @@ export default defineConfig([
 			globals: { 
 				...globals.browser, 
 				...globals.node,
-				...types,
-				...inserts,
-				...cssClass,
-				getNode: true,
-				getNodes: true,
+				// ...types,
+				// ...inserts,
+				// ...cssClass,
+				// getNode: true,
+				// getNodes: true,
 				gsap: true,
+				// clearContents: true,
 			} },
 		rules: { "no-unused-vars": "off" },
 	},

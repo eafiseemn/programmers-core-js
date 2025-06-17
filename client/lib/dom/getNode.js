@@ -21,3 +21,6 @@ function getNode(nodeName, context=document) {
 function getNodes(nodeName, context=document) {
     if (context.nodeType !== 9) context = getNode(context);
     return context.querySelectorAll(nodeName) };
+
+
+export { getNode, getNodes };
