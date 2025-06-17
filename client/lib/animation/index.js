@@ -1,7 +1,5 @@
 /* -------------------------------------------------------------------------- */
-/*                          re-export Util Functions                          */
+/*                        re-export Animation Functions                       */
 /* -------------------------------------------------------------------------- */
 
-
-export * from "./type.js"
-export * from "./copy.js"
+export {default as shakeAnimation} from "./shake.js"
