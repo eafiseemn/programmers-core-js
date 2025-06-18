@@ -1,5 +1,6 @@
 import { 
     attr, 
+    memo,
     insert,
     getNode, 
     getNodes, 
@@ -10,7 +11,6 @@ import {
 
 // console.log( diceAnimation );
 // setInterval (diceAnimation, 1000);
-
 
 /*
   1. 주사위 굴리기 버튼을 선택
