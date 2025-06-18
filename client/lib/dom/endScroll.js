@@ -9,7 +9,7 @@ import { isString } from "../utils/type.js";
 // recordListWrapper.scrollTop = recordListWrapper.scrollHeight;
 
 
-export function scrollBottom(node) {
+export function endScroll(node) {
     if (isString(node)) node = getNode(node);
     node.scrollTop = node.scrollHeight;
 }

@@ -3,8 +3,9 @@ import {
     insert,
     getNode, 
     getNodes, 
-    scrollBottom,
-    diceAnimation, 
+    endScroll,
+    diceAnimation,
+    clearContents, 
  } from '../../lib/index.js'
 
 // console.log( diceAnimation );
@@ -35,26 +36,6 @@ const recordListWrapper = getNode(".recordListWrapper");
   3. 태그 랜더링 하기
  */
 
-
-// const recordList = [];
-// let diceNum = cube.getAttribute("dice");
-// let totalDiceNum = recordList.reduce((acc,cur)=>acc+cur);
-// const template = `
-//         <tr>
-//             <td>${recordList[-1][0]}</td>
-//             <td>${recordList[-1][1]}</td>
-//             <td>${recordList[-1][2]}</td>
-//           </tr>`
-
-// function renderRecordItem() {
-//     recordList.push({
-//         times: recordList.length,
-//         currentRecord: diceNum,
-//         totalRecord: totalDiceNum,
-//     });
-//     insertAfter(recordBody,template)
-// }
-
 let count = 0;
 let total = 0;
 
@@ -70,12 +51,12 @@ function createItem(diceNumber) {
 function renderRecordItem() {
     const diceNumber = +attr('#cube', 'dice');
     insert('tbody', createItem(diceNumber), 'last');
-    
-    scrollBottom(recordListWrapper);
 }
 
 function resetRecordItem() {
-
+    clearContents('tbody');
+    count = 0;
+    total = 0;
 }
 
 const handleRollingDice = (() => {
@@ -102,10 +83,11 @@ const handleRollingDice = (() => {
 function handleRecording() {
     recordListWrapper.hidden = false;
     renderRecordItem();
+    endScroll(recordListWrapper);
 }
 
 function handleReset() {
-    // recordListWrapper.hidden = true;
+    recordListWrapper.hidden = true;
     resetRecordItem();
     recordBtn.disabled = true;
     resetBtn.disabled = true;
