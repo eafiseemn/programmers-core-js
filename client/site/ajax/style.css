@@ -46,7 +46,7 @@ h2 {
 	transform: translateX(-50%);
 	min-width: 400px;
 	z-index: 100;
-	background: white;
+	/* background: white; */
 }
 
 .loadingSpinner svg {
@@ -128,4 +128,10 @@ h2 {
 
 .user-resouce-info > div:last-child {
 	margin-bottom: 0;
+}
+
+.pokemon {
+	position: absolute;
+	top: 20px;
+	right: 20px;
 }

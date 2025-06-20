@@ -100,10 +100,10 @@ function xhr({
 
 const END_POINT = 'https://jsonplaceholder.typicode.com/users';
 
-xhr({
-    url: END_POINT,
-    success: (data) => { console.log( data ); }
-})
+// xhr({
+//     url: END_POINT,
+//     success: (data) => { console.log( data ); }
+// })
 
 const obj = {
     name: "tiger",
@@ -111,20 +111,20 @@ const obj = {
     email: "tiger@gmail.com"
 }
 
-xhr({
-    method: 'POST', 
-    url: END_POINT, 
-    success: (data) => { console.log(data) },
-    fail: ({message}) => { console.log(message) },
-    body: obj,
-})
+// xhr({
+//     method: 'POST', 
+//     url: END_POINT, 
+//     success: (data) => { console.log(data) },
+//     fail: ({message}) => { console.log(message) },
+//     body: obj,
+// })
 
-xhr({
-    method: 'DELETE', 
-    url: `${END_POINT}/4`, 
-    success: (data) => { console.log(data) },
-    fail: ({message}) => { console.log(message) },
-})
+// xhr({
+//     method: 'DELETE', 
+//     url: `${END_POINT}/4`, 
+//     success: (data) => { console.log(data) },
+//     fail: ({message}) => { console.log(message) },
+// })
 
 
 
@@ -146,9 +146,9 @@ xhr.patch = (url, body, success, fail) => {
 
 
 
-xhr.get(END_POINT, (data)=>{ console.log(data) }, ()=>{});
-xhr.post(END_POINT, obj);
-xhr.patch(`${END_POINT}/4`, {username:"emily"}, (data)=>{ console.log(data) }, ()=>{});
+// xhr.get(END_POINT, (data)=>{ console.log(data) }, ()=>{});
+// xhr.post(END_POINT, obj);
+// xhr.patch(`${END_POINT}/4`, {username:"emily"}, (data)=>{ console.log(data) }, ()=>{});
 
 
 
@@ -164,7 +164,8 @@ const _defaultOptions = {
         'Access-Control-Allow-Origin': '*'
     }
 };
-function xhrPromise(options = {}) {
+
+export function xhrPromise(options = {}) {
     const {method, url, body, errorMessage:message, headers} = {
         ..._defaultOptions, 
         ...options, 
@@ -194,17 +195,17 @@ function xhrPromise(options = {}) {
 }
 
 
-xhrPromise({
-    method: 'POST',
-    url: END_POINT,
-    body: obj,
-})
-.then((res) => {
-    console.log( res );
-})
-.catch((err) => {
-    console.log( err.message );
-})
+// xhrPromise({
+//     method: 'POST',
+//     url: END_POINT,
+//     body: obj,
+// })
+// .then((res) => {
+//     console.log( res );
+// })
+// .catch((err) => {
+//     console.log( err.message );
+// })
 
 xhrPromise.get = (url) => xhrPromise({url});
 xhrPromise.post = (url, body) => xhrPromise({method: 'POST', url, body,});
@@ -213,10 +214,10 @@ xhrPromise.patch = (url, body) => xhrPromise({method: 'PATCH', url, body,});
 xhrPromise.delete = (url) => xhrPromise({method: 'DELETE', url});
 
 
-xhrPromise.post(END_POINT+1,obj)
-.then((res) => {
-    console.log( res );
-})
-.catch((err) => {
-    console.log( err.message );
-})
+// xhrPromise.post(END_POINT+1,obj)
+// .then((res) => {
+//     console.log( res );
+// })
+// .catch((err) => {
+//     console.log( err.message );
+// })

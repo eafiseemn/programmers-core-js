@@ -1,7 +1,13 @@
+/* -------------------------------------------------------------------------- */
+/*                      Callback & Promise & Async/await                      */
+/* -------------------------------------------------------------------------- */
+
 // console.log('delay');
 
 import { getNode } from "../dom/getNode.js";
 import { isNumber, isObject } from "./type.js";
+import { xhrPromise } from "./xhr.js";
+import { insert } from "../dom/insert.js";
 
 // callback
 function delay(callbackFn, timeout = 1000) {
@@ -12,30 +18,30 @@ const first = getNode('.first');
 const second = getNode('.second');
 
 /* 콜백을 이용한 순차적 애니메이션 (콜백 지옥..) */
-delay(()=>{
-    first.style.top = '-100px';
-    delay(()=>{
-        first.style.transform = 'rotate(360deg)'
-        delay(()=>{
-            first.style.top = '0';
-            delay(()=>{
-                first.style.top = '100px';
-                delay(()=>{
-                    first.style.transform = 'rotate(-360deg)'
-                    delay(()=>{
-                        first.style.top = '0';
-                        second.style.top = '0';
-                     })
-                    second.style.transform = 'rotate(360deg)'
-                })
-                second.style.top = '-100px';
-            })
-            second.style.top = '0';
-        })
-        second.style.transform = 'rotate(-360deg)'
-    })
-    second.style.top = '100px';
-}, )
+// delay(()=>{
+//     first.style.top = '-100px';
+//     delay(()=>{
+//         first.style.transform = 'rotate(360deg)'
+//         delay(()=>{
+//             first.style.top = '0';
+//             delay(()=>{
+//                 first.style.top = '100px';
+//                 delay(()=>{
+//                     first.style.transform = 'rotate(-360deg)'
+//                     delay(()=>{
+//                         first.style.top = '0';
+//                         second.style.top = '0';
+//                      })
+//                     second.style.transform = 'rotate(360deg)'
+//                 })
+//                 second.style.top = '-100px';
+//             })
+//             second.style.top = '0';
+//         })
+//         second.style.transform = 'rotate(-360deg)'
+//     })
+//     second.style.top = '100px';
+// }, )
 
 
 /* Promise */
@@ -58,40 +64,40 @@ function _delayP(shouldRejected = false, timeout = 1000) {
 
 
 /* Promise를 사용한 순차적 애니메이션 (보다 순서적으로 명확) */
-_delayP(false, 8000)
-.then((result)=>{
-    console.log(result);
-    first.style.top = '-100px';
-    second.style.top = '100px';
-    return _delayP();    // 두 번째 delay를 발생시키기 위함 (then이 뭘 기다릴지 명확히 return 해줘야함)
-}, (error) => {
-    console.log(error.message);
-})
-.then(()=>{
-    first.style.transform = 'rotate(360deg)'
-    second.style.transform = 'rotate(-360deg)'
-    return _delayP();
-})
-.then(()=>{
-    first.style.top = '0';
-    second.style.top = '0';
-    return _delayP();
-})
-.then(()=>{
-    first.style.top = '100px';
-    second.style.top = '-100px';
-    return _delayP();
-})
-.then(()=>{
-    first.style.transform = 'rotate(-360deg)'
-    second.style.transform = 'rotate(360deg)'
-    return _delayP();
-})
-.then(()=>{
-    first.style.top = '0';
-    second.style.top = '0';
-    return _delayP();
-})
+// _delayP(false, 8000)
+// .then((result)=>{
+//     console.log(result);
+//     first.style.top = '-100px';
+//     second.style.top = '100px';
+//     return _delayP();    // 두 번째 delay를 발생시키기 위함 (then이 뭘 기다릴지 명확히 return 해줘야함)
+// }, (error) => {
+//     console.log(error.message);
+// })
+// .then(()=>{
+//     first.style.transform = 'rotate(360deg)'
+//     second.style.transform = 'rotate(-360deg)'
+//     return _delayP();
+// })
+// .then(()=>{
+//     first.style.top = '0';
+//     second.style.top = '0';
+//     return _delayP();
+// })
+// .then(()=>{
+//     first.style.top = '100px';
+//     second.style.top = '-100px';
+//     return _delayP();
+// })
+// .then(()=>{
+//     first.style.transform = 'rotate(-360deg)'
+//     second.style.transform = 'rotate(360deg)'
+//     return _delayP();
+// })
+// .then(()=>{
+//     first.style.top = '0';
+//     second.style.top = '0';
+//     return _delayP();
+// })
 
 
 
@@ -106,7 +112,7 @@ const defaultOptions = {
 }
 
 
-function delayP(options) {
+export function delayP(options) {
     let config = {...defaultOptions};
 
     if (isNumber(options)) {
@@ -134,13 +140,84 @@ function delayP(options) {
 }
 
 
-delayP({
-    data: '성공!!',
-    // shouldRejected: true,
-    // timeout: 1000,
-    // errorMsg: '오류 발생!!!!'
-})
-.then(res => console.log(res));
+// delayP({
+//     data: '성공!!',
+//     // shouldRejected: true,
+//     // timeout: 1000,
+//     // errorMsg: '오류 발생!!!!'
+// })
+// .then(res => console.log(res));
 
-delayP(5000)
-.then(res => console.log(res));
+// delayP(5000)
+// .then(res => console.log(res));
+
+
+
+/* -------------------------------------------------------------------------- */
+/*                                 async await                                */
+/* -------------------------------------------------------------------------- */
+
+// async : 무조건 Promise object를 리턴하는 함수
+// async function f() {
+//     return 10;
+// }
+
+// const a = f();     // Promise{<fulfilled>: 10}
+// console.log( a );
+
+// a.then ( console.log ); // 10
+
+// // await : 코드 실행 흐름 제어, result 값 꺼내기
+// console.log( await a ); // 10
+
+// // top-level await은 가끔 에러 : IIFE 감싸서 사용
+// (async() => {
+//     const b = await f();
+//     return b;
+// })()
+// .then((b) => console.log( b )); // 10
+
+
+function delayA() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve('성공!')
+        }, 2000)
+    })
+}
+
+
+async function 라면끓이기() {
+    await delayP()
+
+    const step1 = await delayP({data: '물 받기'})
+    console.log( step1 );
+    
+    const step2 = await delayP({data: '불 켜기'})
+    console.log( step2 );
+    
+    const step3 = await delayP({data: '스프 넣기'})
+    console.log( step3 );
+    
+    const step4 = await delayP({data: '면 삶기'})
+    console.log( step4 );
+    
+    const step5 = await delayP({data: '계란 넣기'})
+    console.log( step5 );
+    
+    const step6 = await delayP({data: '냠냠 😋'})
+    console.log( step6 );
+}
+
+// 라면끓이기();
+
+
+// 포켓몬 키우기
+async function getData() {
+    const data = await xhrPromise.get('https://pokeapi.co/api/v2/pokemon/143');
+
+    const src = data.sprites.other.showdown['front_default'];
+    insert(document.body, `<img src="${src}" alt="" class="pokemon" />`, 'last')
+}
+
+getData();

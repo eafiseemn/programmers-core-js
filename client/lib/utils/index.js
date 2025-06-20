@@ -4,7 +4,8 @@
 
 
 export * from "./copy.js"
+export * from "./delay.js"
+export * from "./fetchData.js"
 export * from "./memo.js"
 export * from "./type.js"
-export * from "./xhr.js"
-export * from "./delay.js"
+// export * from "./xhr.js"
