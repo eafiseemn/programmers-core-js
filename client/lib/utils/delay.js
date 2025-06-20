@@ -212,12 +212,3 @@ async function 라면끓이기() {
 // 라면끓이기();
 
 
-// 포켓몬 키우기
-async function getData() {
-    const data = await xhrPromise.get('https://pokeapi.co/api/v2/pokemon/143');
-
-    const src = data.sprites.other.showdown['front_default'];
-    insert(document.body, `<img src="${src}" alt="" class="pokemon" />`, 'last')
-}
-
-getData();
