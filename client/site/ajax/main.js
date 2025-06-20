@@ -146,17 +146,22 @@ function handleRegisterCreate(e) {
         password: '12345678',
     })
     .then((data) => {
-    alert('회원가입 성공!');
+        alert('회원가입 성공!');
+        gsap.to('.register .pop', { autoAlpha: 0 } )
+        getNode('#create-name').value = '';
+        getNode('#create-password').value = '';
     })
     .catch((err) => {
-    alert('이미 존재하는 이메일이거나 잘못된 요청입니다.');
-    console.error('에러:', err);
+        alert('이미 존재하는 이메일이거나 잘못된 요청입니다.');
+        console.error('에러:', err);
     });
 }
 
 fetchData.post('http://localhost:3000/login', {
     email: "hello@gmail.com",
     password: "12345678"
+}).then(() => {
+    alert('로그인 성공!');
 })
 
 
