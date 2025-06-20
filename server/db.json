@@ -1,19 +1,10 @@
 {
   "users": [
     {
-      "email": "hello@gmail.com",
-      "password": "$2a$10$cg02ziMCDK7h6R2YeR2aVuAQcSv7dIML8uZNOng8P5s1D6DkZyXqe",
+      "email": "aaa@gmail.com",
+      "password": "$2a$10$kgRIEXgFlDIRyfdXOxMULOhB8tE1hFuMiSuOF2EegS4GeyKh5sIiW",
+      "name": "aaa",
       "id": 1
-    },
-    {
-      "email": "goodbye@gmail.com",
-      "password": "$2a$10$tNp7a1CJKQ6dxr69GvUdtOzbms2s6xJ4rXEM8PgkPfQYn53KakDDe",
-      "id": 2
-    },
-    {
-      "email": "test123@example.com",
-      "password": "$2a$10$j4/FguE7pfi8AGR2Fknxg.n13U5A0fpCI086ht0vIh7A9ADamnfYC",
-      "id": 3
     }
   ],
   "posts": [
