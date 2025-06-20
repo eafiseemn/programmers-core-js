@@ -29,7 +29,7 @@ function createUserCard({
 
 /* 태그를 랜더링하는 함수 */
 export function renderUserCard(placeToRender, data) {
-    insert(placeToRender, createUserCard(data), 'last');
+    insert(placeToRender, createUserCard(data), 'first');
 }
 
 

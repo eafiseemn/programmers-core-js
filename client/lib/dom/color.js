@@ -20,12 +20,14 @@ export const color = [
 
 export function changeColor (target){
   gsap.utils.toArray(target).forEach((item,index)=>{
+    const colorIndex = index % color.length;
+
     gsap.set(item,{
-      backgroundColor:color[index].background,
-      color:color[index].color,
+      backgroundColor:color[colorIndex].background,
+      color:color[colorIndex].color,
     })
     gsap.set(item.querySelectorAll('a'),{
-      borderColor:color[index].color,
+      borderColor:color[colorIndex].color,
     })
   })
 }

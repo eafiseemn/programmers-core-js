@@ -1,5 +1,6 @@
 import { 
     changeColor, 
+    clearContents, 
     delayP, 
     END_POINT,
     fetchData, 
@@ -8,6 +9,9 @@ import {
     renderSpinner, 
     renderUserCard
  } from '../../lib/index.js';
+
+
+const userCardInner = getNode('.user-card-inner');
 
 async function renderUserList(){
     renderSpinner('.user-card-inner', 200, '유저 정보를 가져오는 중...🧐');
@@ -24,6 +28,7 @@ async function renderUserList(){
                 // getNode('.loadingSpinner').remove();
                 this._targets[0].remove();
 
+                clearContents(userCardInner);
                 data.forEach((user) => renderUserCard('.user-card-inner', user));
                 changeColor('.user-card');
 
@@ -50,15 +55,112 @@ async function renderUserList(){
 renderUserList();
 
 
-const userCardInner = getNode('.user-card-inner');
-
 function handleDelete(e) {
     const button = e.target.closest('button');
     if(!button) return;
 
     const id = button.dataset.value;
-    const data = fetchData.delete(END_POINT+`/${id}`);
-    console.log( data );
+    const data = fetchData.delete(END_POINT+`/${id}`)
+    .then(() => {
+        alert('삭제가 완료됐습니다!')
+        renderUserList();
+    })
 }
 
 userCardInner.addEventListener('click', handleDelete);
+
+
+const createBtn = getNode('.create');
+const cancelBtn = getNode('.create .cancel');
+const doneBtn = getNode('.create .done');
+
+
+function handleCreate() {
+    const pop = getNode('.create .pop');
+    // pop.style.opacity = 1;
+    // pop.style.visibility = 'initial';
+
+    gsap.to(pop,{
+        autoAlpha: 1
+    })
+}
+
+function handleCancel(e) {
+    const pop = getNode('.create .pop');
+    e.stopPropagation();    // createBtn 위에 cancelBtn이 있어서
+    gsap.to(pop, {
+        autoAlpha: 0
+    })
+}
+
+function handleDone(e) {
+    e.preventDefault();
+    const name = getNode('#nameField').value;
+    const email = getNode('#emailField').value;
+    const website = getNode('#siteField').value;
+
+    fetchData.post(END_POINT, {name, email, website})
+    .then(() => {
+        gsap.to('.create .pop', { autoAlpha: 0 } )
+        getNode('#nameField').value = '';
+        getNode('#emailField').value = '';
+        getNode('#siteField').value = '';
+        renderUserList();
+    });
+
+}
+
+createBtn.addEventListener('click', handleCreate);
+cancelBtn.addEventListener('click', handleCancel);
+doneBtn.addEventListener('click', handleDone);
+
+
+
+const registerBtn = getNode('.register');
+const registerCancelBtn = getNode('.register .cancel');
+const registerDoneBtn = getNode('.register .done');
+
+function handleRegister() {
+    const pop = getNode('.register .pop');
+    gsap.to(pop,{
+        autoAlpha: 1
+    })
+}
+
+function handleRegisterCancel(e) {
+    const pop = getNode('.register .pop');
+    e.stopPropagation(); 
+    gsap.to(pop, {
+        autoAlpha: 0
+    })
+}
+
+function handleRegisterCreate(e) {
+    e.preventDefault();
+
+    const name = getNode('#create-name').value;
+    const password = getNode('#create-password').value;
+
+    fetchData.post('http://localhost:3000/register', {
+        email: 'test123@example.com',
+        password: '12345678',
+    })
+    .then((data) => {
+    alert('회원가입 성공!');
+    })
+    .catch((err) => {
+    alert('이미 존재하는 이메일이거나 잘못된 요청입니다.');
+    console.error('에러:', err);
+    });
+}
+
+fetchData.post('http://localhost:3000/login', {
+    email: "hello@gmail.com",
+    password: "12345678"
+})
+
+
+
+registerBtn.addEventListener('click', handleRegister);
+registerCancelBtn.addEventListener('click', handleRegisterCancel);
+registerDoneBtn.addEventListener('click', handleRegisterCreate);

@@ -62,7 +62,7 @@ export const fetchData = async (options) => {
 
 
 fetchData.get = (url, options) => fetchData({url, ...options});
-fetchData.delete = (url, options) => fetchData({url, method: 'DELETE', ...options});
+fetchData.delete = (url, options) => fetchData({url, method: 'DELETE', body:null, headers:null, ...options});
 fetchData.post = (url, body, options) => fetchData({url, method: 'POST', body:JSON.stringify(body), ...options});
 fetchData.put = (url, body, options) => fetchData({url, method: 'PUT', body:JSON.stringify(body), ...options});
 fetchData.patch = (url, body, options) => fetchData({url, method: 'PATCH', body:JSON.stringify(body), ...options});
