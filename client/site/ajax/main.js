@@ -29,6 +29,7 @@ async function renderUserList(){
                 this._targets[0].remove();
 
                 clearContents(userCardInner);
+                console.log(userCardInner.textContent.length); 
                 data.forEach((user) => renderUserCard('.user-card-inner', user));
                 changeColor('.user-card');
 
@@ -139,30 +140,34 @@ function handleRegisterCreate(e) {
     e.preventDefault();
 
     const name = getNode('#create-name').value;
+    const email = getNode('#create-email').value;
     const password = getNode('#create-password').value;
 
     fetchData.post('http://localhost:3000/register', {
-        email: 'test123@example.com',
-        password: '12345678',
+        name,
+        email,
+        password
     })
     .then((data) => {
-        alert('회원가입 성공!');
+        console.log('회원가입 성공!');
         gsap.to('.register .pop', { autoAlpha: 0 } )
-        getNode('#create-name').value = '';
-        getNode('#create-password').value = '';
+
+        fetchData.post('http://localhost:3000/login', {
+            name: `${getNode('#create-name').value}`,
+            email: `${getNode('#create-email').value}`,
+            password: `${getNode('#create-password').value}`
+        })
+        getNode('#create-name').value = ''
+        getNode('#create-email').value = ''
+        getNode('#create-password').value = ''
+    }).then(() => {
+        console.log('로그인 성공!');
     })
     .catch((err) => {
-        alert('이미 존재하는 이메일이거나 잘못된 요청입니다.');
+        console.error('이미 존재하는 이메일이거나 잘못된 요청입니다.');
         console.error('에러:', err);
     });
 }
-
-fetchData.post('http://localhost:3000/login', {
-    email: "hello@gmail.com",
-    password: "12345678"
-}).then(() => {
-    alert('로그인 성공!');
-})
 
 
 

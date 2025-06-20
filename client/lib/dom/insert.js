@@ -16,7 +16,7 @@ export function insertBefore(node, content) {
 }
 export function insertFirstChild(node, content) {
     if(isString(node)) node = getNode(node);
-    node.insertAdjacentHTML('beforebegin', content);
+    node.insertAdjacentHTML('afterbegin', content);
 }
 export function insertLastChild(node, content) {
     if(isString(node)) node = getNode(node);
