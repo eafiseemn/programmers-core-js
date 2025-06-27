@@ -4,7 +4,7 @@ class Card extends HTMLElement {
         this.attachShadow({ mode: 'open' });
 
         this.state = {
-            showImage: this.getAttribute('showImage') || 'true',
+            showImage: this.getAttribute('show_image') || 'true',
             title: this.getAttribute('title') || 'Card title'
         }
 
